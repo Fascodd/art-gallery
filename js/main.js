@@ -43,23 +43,60 @@ allButtonSelectors.forEach(function(button) {
 });
 
 // Set Display Image to front
-thumbnailClasses.forEach((img)=>{
-  img.addEventListener("click",()=>{
-    let imageName = img.src.split("/")[img.src.split("/").length-1];
+thumbnailClasses.forEach(img => {
+  img.addEventListener("click", () => {
+    let imageName = img.src.split("/")[img.src.split("/").length - 1];
     let largePicSource = "../img/display/" + imageName;
-  showcase.style.zIndex="1";
-  containter.style.zIndex="-1";
-  headerSection.style.zIndex="-1";
-  showcaseImg.src = largePicSource;
-  })
-})
-//Return to Main Display
-showcaseImg.addEventListener("click",returnToMain);
-showcase.addEventListener("click",returnToMain);
+    showcase.style.zIndex = "1";
+    containter.style.zIndex = "-1";
+    headerSection.style.zIndex = "-1";
 
-function returnToMain(){
-  showcase.style.zIndex="-1";
-  containter.style.zIndex="1";
-  headerSection.style.zIndex="1";
+    showcaseImg.src = largePicSource;
+    showcaseImg.animate(
+      [
+        {
+          transform: ` scale(0, 0)`
+        },
+        {
+          transform: ` scale(1, 1)`
+        }
+      ],
+      {
+        duration: 450,
+        easing: "linear",
+        fill: "forwards"
+      }
+    );
+  });
+});
+function displayShowcase() {}
+//Return to Main Display
+showcaseImg.addEventListener("click", returnToMainDisplay);
+showcase.addEventListener("click", returnToMainDisplay);
+
+function returnToMainDisplay() {
+  showcase.style.zIndex = "-1";
+  containter.style.zIndex = "1";
+  headerSection.style.zIndex = "1";
   showcaseImg.src = "";
 }
+// // Hover off image transition
+// thumbnailClasses.forEach(img => {
+//   img.addEventListener("mouseout", () => {
+//     img.animate(
+//       [
+//         {
+//           transform: ` scale(1.07,1.07)`
+//         },
+//         {
+//           transform: ` scale(1,1)`
+//         }
+//       ],
+//       {
+//         duration: 400,
+
+//         fill: "forwards"
+//       }
+//     );
+//   });
+// });

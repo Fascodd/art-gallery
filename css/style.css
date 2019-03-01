@@ -19,6 +19,7 @@ body {
   width: 100%;
   background:white;
   z-index:1;
+
 }
 #showcase-housing{
   display:flex;
@@ -28,7 +29,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background:#141414;
+  background:rgba(0,0,0,0.97);
+
 }
 #showcase-img{
   max-height: 50vw;
@@ -48,7 +50,7 @@ a {
   color: black;
 }
 
-img {
+.thumbnail {
   border-radius: 3%;
 }
 
@@ -193,7 +195,10 @@ img {
   max-width: 30%;
 }
 #gallery-images .thumbnail:hover{
-
+  cursor: pointer;
+animation-name: hover-img;
+animation-duration: .4s;
+animation-fill-mode: forwards;
 }
 
 
