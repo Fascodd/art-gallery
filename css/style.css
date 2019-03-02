@@ -11,6 +11,11 @@ html {
   padding: 0;
   font-family: "Raleway", sans-serif;
 }
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
 iframe {
   margin: 1.1rem 0 0 1.1rem;
   border: 0.55rem solid #535353;
