@@ -48,7 +48,7 @@ thumbnailClasses.forEach(img => {
   img.addEventListener("click", () => {
     document.body.classList.add('js-loading');
     let imageName = img.src.split("/")[img.src.split("/").length - 1];
-    let largePicSource = "../img/display/" + imageName;
+    let largePicSource = "../art-gallery/img/display/" + imageName;
     showcase.style.zIndex = "1";
     containter.style.zIndex = "-1";
     headerSection.style.zIndex = "-1";
