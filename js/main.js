@@ -2,6 +2,7 @@ const catagoryFilterList = document.querySelectorAll(".image-btn");
 const contentFilterList = document.querySelectorAll(".content-btn");
 const allButtonSelectors = document.querySelectorAll(".select-btn");
 const thumbnailClasses = document.querySelectorAll(".thumbnail");
+const videoButtonsList = document.querySelectorAll(".video-button");
 let currentMainDisplay = document.getElementById("image-housing");
 let showcase = document.getElementById("showcase-housing");
 let showcaseImg = document.getElementById("showcase-img");
@@ -47,26 +48,24 @@ allButtonSelectors.forEach(function(button) {
 thumbnailClasses.forEach(img => {
   img.addEventListener("click", () => {
     document.body.classList.add('js-loading');
+   
     let imageName = img.src.split("/")[img.src.split("/").length - 1];
-    let largePicSource = "../art-gallery/img/display/" + imageName;
+    let largePicSource = "./img/display/" + imageName;
     showcase.style.zIndex = "1";
     containter.style.zIndex = "-1";
     headerSection.style.zIndex = "-1";
-
-  showcaseImg.addEventListener("load", removeLoadingClass);
 function removeLoadingClass() {
 document.body.classList.remove('js-loading');
 }
-    
-
     showcaseImg.src = largePicSource;
+    showcaseImg.addEventListener("load", removeLoadingClass);
     showcaseImg.animate(
       [
         {
-          transform: ` scale(0, 0)`
+          opacity: `.4 `
         },
         {
-          transform: ` scale(1, 1)`
+          opacity: `1 `
         }
       ],
       {
@@ -88,23 +87,22 @@ function returnToMainDisplay() {
   headerSection.style.zIndex = "1";
   showcaseImg.src = "";
 }
-// // Hover off image transition
-// thumbnailClasses.forEach(img => {
-//   img.addEventListener("mouseout", () => {
-//     img.animate(
-//       [
-//         {
-//           transform: ` scale(1.07,1.07)`
-//         },
-//         {
-//           transform: ` scale(1,1)`
-//         }
-//       ],
-//       {
-//         duration: 400,
 
-//         fill: "forwards"
-//       }
-//     );
-//   });
-// });
+// Change videos in "Videos", catagory
+
+
+videoButtonsList.forEach(btn =>{
+  btn.addEventListener("click",()=>{
+    let acitveBtn = btn;
+    document.getElementById("current-video-display").src = btn.value;
+    videoButtonsList.forEach(btn =>{
+      if(btn != acitveBtn){
+        btn.classList.remove("active-btn")
+      }
+      else {
+        btn.classList.add("active-btn");
+      }
+    })
+    
+  })
+})

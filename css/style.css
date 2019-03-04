@@ -16,10 +16,14 @@ html {
 .js-loading *:after {
   animation-play-state: paused !important;
 }
+
 iframe {
-  margin: 1.1rem 0 0 1.1rem;
-  border: 0.55rem solid #535353;
-  border-radius: 4%;
+  margin-top:1rem;
+  border: 0.55rem solid #000000;
+  border-radius: 1%;
+  width:50vw;
+  height: 60vh;
+  
 }
 body {
   width: 100vw;
@@ -37,11 +41,11 @@ body {
   display:flex;
   align-items: center;
   justify-content: center;
-  position:fixed;
+  position: fixed;
   width: 100%;
   height: 100%;
   z-index: -1;
-  background:rgba(0,0,0,0.97);
+  background:rgba(0,0,0,0.93);
 
 }
 #showcase-img{
@@ -61,7 +65,9 @@ a {
   text-decoration: none;
   color: black;
 }
-
+.title{
+  font-family: 'Merriweather', serif;
+}
 .thumbnail {
   border-radius: 3%;
 }
@@ -83,14 +89,14 @@ a {
 .to-back {
   animation-name: put-to-back;
   animation-delay: 0;
-  animation-duration: 1s;
+  animation-duration: .6s;
   animation-fill-mode: forwards;
 }
 
 .to-front {
   animation-name: bring-to-front;
   animation-delay: 0s;
-  animation-duration: 1s;
+  animation-duration: .6s;
   animation-fill-mode: forwards;
 }
 
@@ -166,21 +172,33 @@ a {
 /* Main Display organization */
 #main-display #content-housing {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 72%;
   transition: 0.5s;
   z-index: -1;
   opacity: 0;
 }
+#content-housing .content{
+  display:flex;
+  flex-direction: column;
+align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+}
+#content-header{
+  width:100%;
+  height: 6.9%;
+}
 #image-housing{
   height: 100%;
+  overflow: auto
 }
 .display-header {
-  padding: 0 18rem 0 0;
+ 
   text-align: center;
 }
 #image-header {
@@ -194,7 +212,9 @@ a {
   height: 100%;
 
 }
-
+#content-housing .content #video-buttons{
+  margin-bottom:2rem;
+}
 /* Contact orgainization */
 #container #contact {
   display: flex;
@@ -203,7 +223,7 @@ a {
 #gallery-images .thumbnail {
   display: none;
   margin: 0.5rem 0 0 0.5rem;
-  height: 200px;
+  max-height: 20%;
   max-width: 30%;
 }
 #gallery-images .thumbnail:hover{
