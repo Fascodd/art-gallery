@@ -223,8 +223,10 @@ align-items: center;
 #gallery-images .thumbnail {
   display: none;
   margin: 0.5rem 0 0 0.5rem;
-  max-height: 20%;
-  max-width: 30%;
+  width: auto;
+  height: auto;
+  max-width:300px;
+  max-height:150px;
 }
 #gallery-images .thumbnail:hover{
   cursor: pointer;
