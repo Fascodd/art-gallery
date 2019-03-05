@@ -12,7 +12,6 @@ let activeButton;
 let startArray = [];
 let endArray = [];
 
-
 // Filter Main display by button push
 allButtonSelectors.forEach(function(button) {
   button.addEventListener("click", () => {
@@ -47,16 +46,12 @@ allButtonSelectors.forEach(function(button) {
 // Set Display Image to front
 thumbnailClasses.forEach(img => {
   img.addEventListener("click", () => {
-    document.body.classList.add('js-loading');
-   
     let imageName = img.src.split("/")[img.src.split("/").length - 1];
     let largePicSource = "./img/display/" + imageName;
     showcase.style.zIndex = "1";
     containter.style.zIndex = "-1";
     headerSection.style.zIndex = "-1";
-function removeLoadingClass() {
-document.body.classList.remove('js-loading');
-}
+    function removeLoadingClass() {}
     showcaseImg.src = largePicSource;
     showcaseImg.addEventListener("load", removeLoadingClass);
     showcaseImg.animate(
@@ -90,19 +85,37 @@ function returnToMainDisplay() {
 
 // Change videos in "Videos", catagory
 
-
-videoButtonsList.forEach(btn =>{
-  btn.addEventListener("click",()=>{
+videoButtonsList.forEach(btn => {
+  btn.addEventListener("click", () => {
     let acitveBtn = btn;
     document.getElementById("current-video-display").src = btn.value;
-    videoButtonsList.forEach(btn =>{
-      if(btn != acitveBtn){
-        btn.classList.remove("active-btn")
-      }
-      else {
+    videoButtonsList.forEach(btn => {
+      if (btn != acitveBtn) {
+        btn.classList.remove("active-btn");
+      } else {
         btn.classList.add("active-btn");
       }
-    })
+    });
+  });
+});
+
+// Mobile menu for navigation
+
+let menuButton = document.querySelectorAll(".menu-button");
+console.log(menuButton)
+let mobileSidebar = document.getElementById("sidebar");
+menuButton.forEach(menuBtn=>{
+  menuBtn.addEventListener("click",()=>{
+ 
+    if(mobileSidebar.classList.contains("hide-sidebar")){
+       mobileSidebar.classList.replace("hide-sidebar","show-sidebar")
+     }
+     else if(mobileSidebar.classList.contains("show-sidebar")){
+    mobileSidebar.classList.replace("show-sidebar","hide-sidebar")
+     }
+     else if(!mobileSidebar.classList.contains("hide-sidebar")){
+      mobileSidebar.classList.add("show-sidebar")
+    }
     
-  })
+    })
 })
